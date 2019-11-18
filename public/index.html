@@ -2,9 +2,24 @@
 <html>
 <head>
     <title></title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <h1>Imageboard</h1>
+    <div id="main">
+        <h2>The best cohort is.... {{name}}</h2>
+        <h2>Math 2 * 2 = {{2 * 2}}</h2>
+        <h2>Capitalize = {{name.toUpperCase()}}</h2>
+        <h2 v-if="seen">Can you see me?</h2>
+        <h2 v-else>I am the else...</h2>
+
+        <ul>
+            <li v-for="animal in animals" @click="myFunction">{{animal.name}}, {{animal.emoji}}</li>
+        </ul>
+    </div>
+
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
