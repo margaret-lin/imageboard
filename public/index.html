@@ -7,20 +7,11 @@
 <body>
     <h1>Imageboard</h1>
     <div id="main">
-        <div class="cards">
-            <img src="{{image}}" alt="">
+        <div class="cards" v-for="image in images">
+            <img v-bind:src="image.url"/>
+            <p>{{image.title}}</p>
         </div>
-        <div class="cards"></div>
-        <div class="cards"></div>
-        <div class="cards"></div>
-        <div class="cards"></div>
-        <div class="cards"></div>
-        <div class="cards"></div>
-        <div class="cards"></div>
-        <div class="cards"></div>
-        <div class="cards"></div>
-        <div class="cards"></div>
-        <div class="cards"></div>
+
         <!-- <h2>The best cohort is.... {{name}}</h2>
         <h2>Math 2 * 2 = {{2 * 2}}</h2>
         <h2>Capitalize = {{name.toUpperCase()}}</h2>
