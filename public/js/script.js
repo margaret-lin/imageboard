@@ -2,6 +2,10 @@ new Vue({
     el: '#main',
     data: {
         images: []
+        // title: '',
+        // description: '',
+        // username: '',
+        // file: null
     },
     mounted: function() {
         var me = this;
