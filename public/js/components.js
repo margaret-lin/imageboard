@@ -17,9 +17,10 @@ Vue.component('image-modal', {
         }).catch((err) => console.log('error in post/upload', err));
     },
     methods: {
-        callImageModal: function(e) {
-            // console.log('calling modal');
-            // this.$emit('myImage', this.id, e.target.value);
+        closeImageModal: function(e) {
+            console.log('close modal');
+            //firing event
+            this.$emit('close', this.id, e.target.value);
         }
     }
 });

@@ -30,18 +30,16 @@ new Vue({
             }).catch((err) => console.log('error in post/upload', err));
         },
         handleChange: function(e) {
-            console.log("handleChange is happening!");
-            console.log("e.target.files", e.target.files[0]);
             this.file = e.target.files[0];
         },
-        // setCurrentImage: function(e) {
-        //     console.log("e.target.id is", e.target.id[0]);
-        //     this.id = e.target.id[0];
-        // },
         showModal: function(id) {
-            // this.id = e.target.id[0];
             console.log('showmodal ID:', id);
             this.selectedImage = id;
+        },
+        closeModal: function() {
+            console.log('im closing yo');
+            //function executing
+            this.selectedImage = null;
         }
     }
 });

@@ -17,6 +17,9 @@ body {
     text-align: center;
 }
 
+#close-image-modal {
+    left: 0
+}
 
 .container {
     display: grid;
