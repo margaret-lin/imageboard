@@ -1,3 +1,23 @@
+
+body {
+    z-index: -1;
+    position: relative;
+}
+
+#image-background {
+    background-color: rgba(0,0,0,0.5);
+    width: 100vh;
+    height: 100vh;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+}
+
+#image-detail {
+    z-index: 20px;
+    top: 20;
+}
+
 .container {
     display: grid;
     width: 90%;
@@ -21,3 +41,4 @@ img {
     width: 250px;
     height: 250px;
 }
+

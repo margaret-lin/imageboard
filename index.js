@@ -49,4 +49,15 @@ app.post('/upload', uploader.single('file'), s3.upload, (req, res)=> {
     });
 });
 
+app.get('/my-image/:id', (req, res)=> {
+    let { id } = req.params;
+
+    db.selectImage(id).then(({ rows }) => {
+        res.json({
+            image: rows[0]
+        });
+    }).catch((err) => console.log('error in /my-image', err));
+
+});
+
 app.listen(8080, () => console.log('Imageboard up and running...'));
