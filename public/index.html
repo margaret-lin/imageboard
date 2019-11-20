@@ -30,11 +30,10 @@
 
     <script type="text/x-template" id="my-template">
         <div id="image-detail">
-            <h3 @click="callImageModal" id="image-background"></h3>
-            <img v-bind:src="image.url"/>
-            <p>{{image.title}}</p>
-            <p>{{image.description}}</p>
-            <p>testing</p>
+                <p @click="callImageModal">X</p>
+                <img v-bind:src="image.url"/>
+                <p>{{image.title}}</p>
+                <p>{{image.description}}</p>
         </div>
     </script>
 
