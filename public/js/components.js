@@ -1,5 +1,5 @@
 Vue.component('image-modal', {
-    template: '#my-template',
+    template: `#my-template`,
     data: function() {
         return {
             image: {}
@@ -12,6 +12,7 @@ Vue.component('image-modal', {
         
         axios.get(`/my-image/${this.id}`).then((res) => {
             console.log('res from axios.post.upload', res);
+            console.log('me.image', me.image);
             me.image = res.data.image;
         }).catch((err) => console.log('error in post/upload', err));
     },

@@ -17,7 +17,7 @@ exports.uploadImage = function uploadImage(title, description, username, imageUr
 
 exports.selectImage = function selectImage(id) {
     return db.query(
-        'SELECT (title, description, username, url) FROM images WHERE id = $1',
+        'SELECT title, description, username, url FROM images WHERE id = $1',
         [id]
     );
 };

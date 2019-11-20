@@ -53,6 +53,7 @@ app.get('/my-image/:id', (req, res)=> {
     let { id } = req.params;
 
     db.selectImage(id).then(({ rows }) => {
+        console.log('image rows', rows[0]);
         res.json({
             image: rows[0]
         });
