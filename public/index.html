@@ -14,17 +14,32 @@
             <input @change="handleChange" type="file" name="file" accept="image/*">
             <button @click="handleClick">Submit</button>
         </form>
+
         <div class="container">
-            <div class="cards" v-for="image in images">
+            <div class="cards" v-for="image in images" @click="showModal(image.id)">
                     <img v-bind:src="image.url"/>
                     <p>{{image.title}}</p>
                     <p>{{image.description}}</p>
             </div>
         </div>
+
+        <image-modal 
+        v-if="selectedImage"
+        v-bind:id="selectedImage"
+        ></image-modal>
+        
     </div>
+
+    <script type="text/x-template" id="my-template">
+        <div>
+            <h3 @click="callImageModal">testing123
+            </h3>
+        </div>
+    </script>
 
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
+    <script src="/js/components.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

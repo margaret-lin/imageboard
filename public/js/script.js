@@ -5,7 +5,8 @@ new Vue({
         title: '',
         description: '',
         username: '',
-        file: null
+        file: null,
+        selectedImage: null
     },
     mounted: function() {
         var me = this;
@@ -24,7 +25,7 @@ new Vue({
             fd.append('description', this.description);
             
             var me = this;
-            axios.post('/upload', fd). then((res) => {
+            axios.post('/upload', fd).then((res) => {
                 console.log('res from axios.post.upload', res);
                 me.images.unshift(res.data.image);
             }).catch((err) => console.log('error in post/upload', err));
@@ -33,6 +34,15 @@ new Vue({
             console.log("handleChange is happening!");
             console.log("e.target.files", e.target.files[0]);
             this.file = e.target.files[0];
+        },
+        setCurrentImage: function(e) {
+            console.log("e.target.id is", e.target.id[0]);
+            this.id = e.target.id[0];
+        },
+        showModal: function(id) {
+            // this.id = e.target.id[0];
+            console.log('showmodal ID:', id);
+            this.selectedImage = id;
         }
     }
 });
