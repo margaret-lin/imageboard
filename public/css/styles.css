@@ -1,12 +1,10 @@
-
 body {
     z-index: -1;
     position: relative;
 }
 
-
 #image-detail {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     width: 100vw;
     height: 100%;
@@ -18,7 +16,17 @@ body {
 }
 
 #close-image-modal {
-    left: 0
+    position: absolute;
+    margin-left: 2%;
+    margin-top: 2%;
+    font-size: 25px;
+}
+
+#comment-field > input {
+    height: 100px;
+    width: 200px;
+    background-color: bisque;
+    border: 2px solid black;
 }
 
 .container {
@@ -39,9 +47,7 @@ body {
     border-radius: 5px;
 }
 
-
 img {
     width: 250px;
     height: 250px;
 }
-
