@@ -27,6 +27,10 @@ exports.selectImage = function selectImage(id) {
     );
 };
 
+exports.getComment = function getImage(id) {
+    return db.query('SELECT * FROM comments ORDER BY created_at DESC', [id]);
+};
+
 exports.createComment = function createComment(username, commentText, imageId) {
     return db.query(
         'INSERT INTO comments (username, comment_text, image_id) VALUES ($1, $2, $3) RETURNING id',

@@ -62,26 +62,29 @@ app.get('/my-image/:id', (req, res) => {
 
 app.get('/comment/:id', (req, res) => {
     let { id } = req.params;
+    console.log(' get to ./comment get!!!');
 
-    db.createComment(id)
+    db.getComment(id)
         .then(({ rows }) => {
             console.log('comment rows', rows[0]);
             res.json({
                 comments: rows[0]
             });
         })
-        .catch(err => console.log('err in /comment', err));
+        .catch(err => console.log('err in node get/comment', err));
 });
 
-app.post('/comment/:id', (req, res) => {
-    db.createComment(req.body.username, req.body.commentText)
+app.post('/comment', (req, res) => {
+    console.log('./comment req body', req.body);
+
+    db.createComment(req.body.username, req.body.commentText, req.body.imageId)
         .then(({ rows }) => {
             console.log('comment rows', rows[0]);
             res.json({
                 comments: rows[0]
             });
         })
-        .catch(err => console.log('err in /comment', err));
+        .catch(err => console.log('err in node post/comment', err));
 });
 
 app.listen(8080, () => console.log('Imageboard up and running...'));

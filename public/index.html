@@ -67,29 +67,15 @@
                         <p>{{image.username}}</p>
                         <p>{{image.comment_text}}</p>
                         <p>{{image.created_at}}</p>
-                        <p>1234testing</p>
                         <form method="POST">
                             <input type="text"
                             placeholder="Leave a comment..." maxlength="250" @keyup.enter="submitComment"/>
-                            <button id="submit-button" @click.prevent="submitComment">Send</button>
+                            <input type="text"  placeholder="Username" />
+                            <button id="submit-button" @click="submitComment">Send</button>
                         </form>
                     </div>
             </div>
         </script>
-
-        <!-- <script type="text/x-template" id="my-comment-template">
-            <div id="comment-field">
-                    <p>{{comment.username}}</p>
-                    <p>{{comment.comment_text}}</p>
-                    <p>{{comment.created_at}}</p>
-                    <p>1234testing</p>
-                    <form method="POST">
-                        <input type="text" v-model.trim="submit" placeholder="Leave a comment..." maxlength="250" @keyup.enter="submitComment"/>
-                        <button id="submit-button" @click.prevent="submitComment">Send</button>
-                    </form>
-
-            </div>
-        </script> -->
 
         <script src="/js/vue.js"></script>
         <script src="/js/axios.min.js"></script>

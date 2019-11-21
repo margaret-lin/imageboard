@@ -39,14 +39,20 @@ Vue.component('image-modal', {
             //firing event
             this.$emit('close', this.id, e.target.value);
         },
-        clickEvent: function(e) {
+        submitComment: function(e) {
+            var self = this;
+
             this.$emit('click', this.id, e.target.value);
             axios
-                .post('/comment')
+                .post('/comment', {
+                    username: self.username,
+                    comment_text: self.comment_text,
+                    id: self.id
+                })
                 .then(res => {
                     console.log('res from axios comment', res);
                     console.log('me.comment', this.comment);
-                    this.comment = res.data.comments;
+                    self.comments.unshift(res.data.comment);
                 })
                 .catch(err => console.log('error in post/comment', err));
         }
