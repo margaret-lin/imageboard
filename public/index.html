@@ -69,8 +69,12 @@
                         <p>{{image.created_at}}</p>
                         <form method="POST">
                             <input type="text"
-                            placeholder="Leave a comment..." maxlength="250" @keyup.enter="submitComment"/>
-                            <input type="text"  placeholder="Username" />
+                            name="commentText" v-model="username"
+                            placeholder="Leave a
+                            comment..." maxlength="250" @keyup.enter="submitComment"/>
+                            <input type="text" name="username"
+                            v-model="commentText"
+                            placeholder="Username" />
                             <button id="submit-button" @click="submitComment">Send</button>
                         </form>
                     </div>

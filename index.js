@@ -75,7 +75,7 @@ app.get('/comment/:id', (req, res) => {
 });
 
 app.post('/comment', (req, res) => {
-    console.log('./comment req body', req.body);
+    console.log('POST /comment req body', req.body);
 
     db.createComment(req.body.username, req.body.commentText, req.body.imageId)
         .then(({ rows }) => {

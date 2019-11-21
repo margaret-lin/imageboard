@@ -2,18 +2,12 @@ Vue.component('image-modal', {
     template: `#my-template`,
     data: function() {
         return {
-            image: {}
+            image: {},
+            username: '',
+            commentText: ''
         };
     },
-    props: [
-        'id',
-        'title',
-        'description',
-        'url',
-        'username',
-        'created_at',
-        'comment_text'
-    ],
+    props: ['id', 'title', 'description', 'url', 'created_at', 'comment_text'],
     mounted: function() {
         var me = this;
         console.log('id in components', this.id);
@@ -40,19 +34,23 @@ Vue.component('image-modal', {
             this.$emit('close', this.id, e.target.value);
         },
         submitComment: function(e) {
-            var self = this;
+            var imageModal = this;
+            if (imageModal.username === '' || imageModal.commentText === '') {
+                console.log('imageModal username', imageModal.username);
+                return false;
+            }
 
             this.$emit('click', this.id, e.target.value);
             axios
                 .post('/comment', {
-                    username: self.username,
-                    comment_text: self.comment_text,
-                    id: self.id
+                    username: imageModal.username,
+                    commentText: imageModal.commentText,
+                    imageId: imageModal.id
                 })
                 .then(res => {
                     console.log('res from axios comment', res);
                     console.log('me.comment', this.comment);
-                    self.comments.unshift(res.data.comment);
+                    imageModal.comments.unshift(res.data.comment);
                 })
                 .catch(err => console.log('error in post/comment', err));
         }
