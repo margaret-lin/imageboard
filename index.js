@@ -60,15 +60,15 @@ app.get('/my-image/:id', (req, res) => {
         .catch(err => console.log('error in /my-image', err));
 });
 
-app.get('/comment/:id', (req, res) => {
-    let { id } = req.params;
+app.get('/comment/:imageId', (req, res) => {
+    let { imageId } = req.params;
     console.log(' get to ./comment get!!!');
 
-    db.getComment(id)
+    db.getCommentsByImageId(imageId)
         .then(({ rows }) => {
-            console.log('comment rows', rows[0]);
+            console.log('comment rows', rows);
             res.json({
-                comments: rows[0]
+                comments: rows
             });
         })
         .catch(err => console.log('err in node get/comment', err));

@@ -4,7 +4,8 @@ Vue.component('image-modal', {
         return {
             image: {},
             username: '',
-            commentText: ''
+            commentText: '',
+            comments: []
         };
     },
     props: ['id', 'title', 'description', 'url', 'created_at', 'comment_text'],
@@ -23,8 +24,8 @@ Vue.component('image-modal', {
 
         axios.get(`/comment/${this.id}`).then(res => {
             console.log('res from axios comment', res);
-            console.log('me.comment', this.comment);
-            me.comment = res.data.comments;
+            console.log('me.comments', this.comments);
+            me.comments = res.data.comments;
         });
     },
     methods: {
