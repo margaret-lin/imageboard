@@ -35,7 +35,7 @@
                 <button @click="handleClick">Submit</button>
             </form>
 
-            <div class="container">
+            <div class="container" @keydown.esc="closeModal" tabindex="0">
                 <div class="cards" v-for="image in images">
                     <a :href='"#"+image.id'>
                         <img v-bind:src="image.url" />
