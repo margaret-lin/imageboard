@@ -36,14 +36,12 @@
             </form>
 
             <div class="container">
-                <div
-                    class="cards"
-                    v-for="image in images"
-                    @click="showModal(image.id)"
-                >
-                    <img v-bind:src="image.url" />
-                    <p>{{image.title}}</p>
-                    <p>{{image.description}}</p>
+                <div class="cards" v-for="image in images">
+                    <a :href='"#"+image.id'>
+                        <img v-bind:src="image.url" />
+                        <p>{{image.title}}</p>
+                        <p>{{image.description}}</p>
+                    </a>
                 </div>
                 <button v-if="showButton" id="more-button" @click="loadMore">
                     More

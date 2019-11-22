@@ -28,6 +28,22 @@ Vue.component('image-modal', {
             me.comments = res.data.comments;
         });
     },
+    watch: {
+        id: function() {
+            var me = this;
+
+            axios
+                .get(`/my-image/${this.id}`)
+                .then(res => {
+                    me.image = res.data.images;
+                })
+                .catch(err => console.log('error in post/upload', err));
+
+            axios.get(`/comment/${this.id}`).then(res => {
+                me.comments = res.data.comments;
+            });
+        }
+    },
     methods: {
         closeImageModal: function(e) {
             //firing event

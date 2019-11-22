@@ -6,7 +6,7 @@ new Vue({
         description: '',
         username: '',
         file: null,
-        selectedImage: null,
+        selectedImage: location.hash.slice(1),
         showButton: true
     },
     mounted: function() {
@@ -14,6 +14,10 @@ new Vue({
 
         axios.get('/image').then(res => {
             me.images = res.data;
+        });
+
+        window.addEventListener('hashchange', function() {
+            me.selectedImage = location.hash.slice(1);
         });
     },
     methods: {
@@ -42,6 +46,7 @@ new Vue({
         },
         closeModal: function() {
             this.selectedImage = null;
+            location.hash = '';
         },
         loadMore: function() {
             // var me = this;
