@@ -45,7 +45,9 @@
                     <p>{{image.title}}</p>
                     <p>{{image.description}}</p>
                 </div>
-                <button id="more-button">More</button>
+                <button id="more-button" @click="loadMore">
+                    More
+                </button>
             </div>
 
             <image-modal

@@ -8,7 +8,7 @@ Vue.component('image-modal', {
             comments: []
         };
     },
-    props: ['id', 'title', 'description', 'url', 'created_at', 'comment_text'],
+    props: ['id'],
     mounted: function() {
         var me = this;
         // console.log('id in components', this.id);

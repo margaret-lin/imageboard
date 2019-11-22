@@ -52,7 +52,7 @@ app.get('/my-image/:id', (req, res) => {
 
     db.selectImage(id)
         .then(({ rows }) => {
-            console.log('images (rows)', rows[0]);
+            // console.log('images (rows)', rows[0]);
             res.json({
                 images: rows[0]
             });
@@ -62,11 +62,10 @@ app.get('/my-image/:id', (req, res) => {
 
 app.get('/comment/:imageId', (req, res) => {
     let { imageId } = req.params;
-    console.log(' get to ./comment get!!!');
 
     db.getCommentsByImageId(imageId)
         .then(({ rows }) => {
-            console.log('comment rows', rows);
+            // console.log('comment rows', rows);
             res.json({
                 comments: rows
             });
@@ -75,16 +74,28 @@ app.get('/comment/:imageId', (req, res) => {
 });
 
 app.post('/comment', (req, res) => {
-    console.log('POST /comment req body', req.body);
+    // console.log('POST /comment req body', req.body);
 
     db.createComment(req.body.username, req.body.commentText, req.body.imageId)
         .then(({ rows }) => {
-            console.log('comment rows', rows[0]);
+            // console.log('comment rows', rows[0]);
             res.json({
                 comments: rows[0]
             });
         })
         .catch(err => console.log('err in node post/comment', err));
+});
+
+app.get('/more/:lastId', (req, res) => {
+    let { lastId } = req.params;
+
+    console.log('Back-end working: get/load more');
+
+    db.getMoreImages(lastId)
+        .then(({ rows }) => {
+            res.json(rows);
+        })
+        .catch(err => console.log('err in back: get /more', err));
 });
 
 app.listen(8080, () => console.log('Imageboard up and running...'));

@@ -40,3 +40,10 @@ exports.createComment = function createComment(username, commentText, imageId) {
         [username, commentText, imageId]
     );
 };
+
+exports.getMoreImages = function getMoreImages(lastId) {
+    return db.query(
+        'SELECT * FROM images WHERE id < $1 ORDER BY id DESC LIMIT 3',
+        [lastId]
+    );
+};
