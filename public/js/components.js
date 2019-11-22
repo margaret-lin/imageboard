@@ -47,6 +47,7 @@ Vue.component('image-modal', {
     methods: {
         closeImageModal: function(e) {
             //firing event
+            console.log('firing esc');
             this.$emit('close', this.id, e.target.value);
         },
         submitComment: function(e) {

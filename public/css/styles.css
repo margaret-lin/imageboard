@@ -15,6 +15,26 @@ body {
     text-align: center;
 }
 
+#image-detail-content {
+    text-align: left;
+    width: 300px;
+    margin: 0 auto;
+}
+
+#image-detail-content > img {
+    height: 300px;
+    width: 300px;
+}
+
+.comment-card {
+    margin: 5px 0;
+    padding: 5px;
+    border: 2px solid snow;
+    border-radius: 5px;
+    color: forestgreen;
+    background-color: wheat;
+}
+
 #close-image-modal {
     position: absolute;
     margin-left: 2%;
