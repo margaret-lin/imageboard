@@ -49,8 +49,6 @@ new Vue({
             location.hash = '';
         },
         loadMore: function() {
-            // var me = this;
-
             axios
                 .get(`/more/${this.images[this.images.length - 1].id}`)
                 .then(res => {

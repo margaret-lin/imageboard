@@ -11,20 +11,15 @@ Vue.component('image-modal', {
     props: ['id'],
     mounted: function() {
         var me = this;
-        // console.log('id in components', this.id);
 
         axios
             .get(`/my-image/${this.id}`)
             .then(res => {
-                // console.log('res from axios.get image', res);
-                // console.log('me.image', me.image);
                 me.image = res.data.images;
             })
             .catch(err => console.log('error in post/upload', err));
 
         axios.get(`/comment/${this.id}`).then(res => {
-            // console.log('res from axios comment', res);
-            // console.log('me.comments', this.comments);
             me.comments = res.data.comments;
         });
     },
@@ -47,7 +42,6 @@ Vue.component('image-modal', {
     methods: {
         closeImageModal: function(e) {
             //firing event
-            console.log('firing esc');
             this.$emit('close', this.id, e.target.value);
         },
         submitComment: function(e) {

@@ -74,11 +74,12 @@ body {
     justify-items: center;
 }
 
-.cards {
+.card {
     margin: 20px;
     width: 250;
     border: 1px solid black;
     border-radius: 5px;
+    text-align: center;
 }
 
 img {
