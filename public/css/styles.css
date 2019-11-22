@@ -82,6 +82,10 @@ body {
     text-align: center;
 }
 
+.comment-date {
+    font-size: 10px;
+}
+
 img {
     width: 250px;
     height: 250px;

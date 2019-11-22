@@ -63,7 +63,7 @@
                     <img image v-bind:src="image.url" />
                     <p>Title: {{image.title}}</p>
                     <p>Description: {{image.description}}</p>
-                    <p>Time: {{image.created_at}}</p>
+                    <p>Time: {{image.created_at | formatDate}}</p>
 
                     <div id="comment-field">
                         <form method="POST">
@@ -90,6 +90,7 @@
                                 <strong>{{comment.username}}:</strong>
                                 {{comment.comment_text}}
                             </p>
+                            <p class="comment-date">on {{comment.created_at | formatDate}}</p>
                         </div>
                     </div>
                 </div>
@@ -99,6 +100,7 @@
         <script src="/js/vue.js"></script>
         <script src="/js/axios.min.js"></script>
         <script src="/js/components.js"></script>
-        <script src="js/script.js"></script>
+        <script src="/js/moment.js"></script>
+        <script src="/js/script.js"></script>
     </body>
 </html>
