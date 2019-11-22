@@ -60,27 +60,28 @@
             <div id="image-detail">
                     <p @click="closeImageModal" id="close-image-modal">X</p>
                     <img v-bind:src="image.url"/>
-                    <p>{{image.title}}</p>
-                    <p>{{image.description}}</p>
-                    <p>{{image.created_at}}</p>
+                        <p>Title: {{image.title}}</p>
+                        <p>Description: {{image.description}}</p>
+                        <p>Time: {{image.created_at}}</p>
 
-            <div id="comment-field">
-                <form method="POST">
-                    <input type="text"
-                    name="commentText" v-model="username"
-                    placeholder="Leave a
-                    comment..." maxlength="250" @keyup.enter="submitComment"/>
-                    <input type="text" name="username"
-                    v-model="commentText"
-                    placeholder="Username" />
-                    <button id="submit-button" @click="submitComment">Send</button>
-                </form>
-                <div class="comment-cards" v-for="comment in comments">
-                    <p>username: {{comment.username}}</p>
-                    <p>comment: {{comment.comment_text}}</p>
-                </div>
-            </div>
-            </div>
+                        <div id="comment-field">
+                            <form method="POST">
+                                <input type="text" name="username"
+                                v-model="username"
+                                placeholder="Username" />
+                                <input type="text"
+                                name="commentText" v-model="commentText"
+                                placeholder="Leave a comment..."
+                                maxlength="250"
+                                @keyup.enter="submitComment"/>
+                                <button id="submit-button" @click="submitComment">Send</button>
+                            </form>
+                            <div class="comment-cards" v-for="comment in comments">
+                                <p><strong>{{comment.username}}:</strong>
+                                    {{comment.comment_text}}</p>
+                                </div>
+                            </div>
+                        </div>
         </script>
 
         <script src="/js/vue.js"></script>
