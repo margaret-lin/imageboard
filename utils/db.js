@@ -5,7 +5,7 @@ var db = spicedPg(
 );
 
 exports.getImage = function getImage() {
-    return db.query('SELECT * FROM images ORDER BY created_at DESC');
+    return db.query('SELECT * FROM images ORDER BY id DESC LIMIT 6');
 };
 
 exports.uploadImage = function uploadImage(

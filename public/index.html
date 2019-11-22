@@ -45,6 +45,7 @@
                     <p>{{image.title}}</p>
                     <p>{{image.description}}</p>
                 </div>
+                <button id="more-button">More</button>
             </div>
 
             <image-modal
@@ -75,8 +76,8 @@
                     <button id="submit-button" @click="submitComment">Send</button>
                 </form>
                 <div class="comment-cards" v-for="comment in comments">
-                    <p>{{comment.username}}</p>
-                    <p>{{comment.comment_text}}</p>
+                    <p>username: {{comment.username}}</p>
+                    <p>comment: {{comment.comment_text}}</p>
                 </div>
             </div>
             </div>
