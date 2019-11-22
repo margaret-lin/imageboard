@@ -57,7 +57,7 @@
         </div>
 
         <script type="text/x-template" id="my-template">
-            <div id="image-detail">
+            <div id="image-detail" @keydown.esc="closeImageModal" tabindex="0">
                 <p @click="closeImageModal" id="close-image-modal">X</p>
                 <div id="image-detail-content">
                     <img image v-bind:src="image.url" />
