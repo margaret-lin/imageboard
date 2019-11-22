@@ -48,6 +48,6 @@ exports.getMoreImages = function getMoreImages(lastId) {
     );
 };
 
-exports.compareImageId = function compareImageId(id) {
-    return db.query('SELECT id FROM images ORDER BY id ASC LIMIT 1', [id]);
+exports.countTotalImage = function countTotalImage() {
+    return db.query('SELECT count(id) FROM images');
 };

@@ -54,10 +54,13 @@ new Vue({
             axios
                 .get(`/more/${this.images[this.images.length - 1].id}`)
                 .then(res => {
-                    if (this.images[this.images.length - 1].id === 1) {
+                    res.data.images.forEach(element =>
+                        this.images.push(element)
+                    );
+
+                    if (this.images.length >= res.data.count) {
                         this.showButton = false;
                     }
-                    res.data.forEach(element => this.images.push(element));
                 });
         }
     }

@@ -91,7 +91,12 @@ app.get('/more/:lastId', (req, res) => {
 
     db.getMoreImages(lastId)
         .then(({ rows }) => {
-            res.json(rows);
+            db.countTotalImage().then(results => {
+                res.json({
+                    images: rows,
+                    count: results.rows[0].count
+                });
+            });
         })
         .catch(err => console.log('err in back: get /more', err));
 });
