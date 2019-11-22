@@ -45,7 +45,7 @@
                     <p>{{image.title}}</p>
                     <p>{{image.description}}</p>
                 </div>
-                <button id="more-button" @click="loadMore">
+                <button v-if="showButton" id="more-button" @click="loadMore">
                     More
                 </button>
             </div>

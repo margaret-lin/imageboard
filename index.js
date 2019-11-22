@@ -89,8 +89,6 @@ app.post('/comment', (req, res) => {
 app.get('/more/:lastId', (req, res) => {
     let { lastId } = req.params;
 
-    console.log('Back-end working: get/load more');
-
     db.getMoreImages(lastId)
         .then(({ rows }) => {
             res.json(rows);

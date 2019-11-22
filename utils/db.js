@@ -47,3 +47,7 @@ exports.getMoreImages = function getMoreImages(lastId) {
         [lastId]
     );
 };
+
+exports.compareImageId = function compareImageId(id) {
+    return db.query('SELECT id FROM images ORDER BY id ASC LIMIT 1', [id]);
+};

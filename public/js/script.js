@@ -6,7 +6,8 @@ new Vue({
         description: '',
         username: '',
         file: null,
-        selectedImage: null
+        selectedImage: null,
+        showButton: true
     },
     mounted: function() {
         var me = this;
@@ -42,21 +43,15 @@ new Vue({
         closeModal: function() {
             this.selectedImage = null;
         },
-        loadMore: function(id) {
-            var me = this;
-            console.log('I am loading more images...');
-            console.log(
-                'last (loadMore) ID:',
-                this.images[this.images.length - 1].id
-            );
+        loadMore: function() {
+            // var me = this;
 
             axios
                 .get(`/more/${this.images[this.images.length - 1].id}`)
                 .then(res => {
-                    console.log('front: axios get /more!');
-                    // me.images = res.data.images;
-                    // me.images.push(me.images);
-                    console.log('res.data is', res.data);
+                    if (this.images[this.images.length - 1].id === 1) {
+                        this.showButton = false;
+                    }
                     res.data.forEach(element => this.images.push(element));
                 });
         }
