@@ -60,6 +60,19 @@ app.get('/my-image/:id', (req, res) => {
         .catch(err => console.log('error in /my-image', err));
 });
 
+app.delete('/my-image/:id', (req, res) => {
+    let { id } = req.params;
+
+    console.log('delete image from backend index.js');
+
+    db.deleteImage(id)
+        .then(({ rows }) => {
+            console.log('delete (rows)', rows);
+            res.sendStatus(204);
+        })
+        .catch(err => console.log('error in delete/my-image', err));
+});
+
 app.get('/comment/:imageId', (req, res) => {
     let { imageId } = req.params;
 

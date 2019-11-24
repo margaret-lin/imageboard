@@ -54,6 +54,10 @@ new Vue({
             this.selectedImage = null;
             location.hash = '';
         },
+        refreshPage: function() {
+            this.closeModal();
+            window.location.reload();
+        },
         loadMore: function() {
             axios
                 .get(`/more/${this.images[this.images.length - 1].id}`)

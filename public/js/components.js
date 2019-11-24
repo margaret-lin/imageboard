@@ -60,11 +60,25 @@ Vue.component('image-modal', {
                     imageId: imageModal.id
                 })
                 .then(res => {
-                    // console.log('res from axios comment', res);
-                    // console.log('me.comment', this.comment);
                     imageModal.comments.unshift(res.data.comment);
                 })
                 .catch(err => console.log('error in post/comment', err));
+        },
+        deleteImage: function() {
+            console.log('deleting....', this.id);
+
+            axios
+                .delete(`/my-image/${this.id}`)
+                .then(() => {
+                    console.log(
+                        'deleting images frontend component: ',
+                        this.id
+                    );
+                    this.$emit('image-deleted', this.id);
+                })
+                .catch(err =>
+                    console.log('error in deleting image component', err)
+                );
         }
     }
 });

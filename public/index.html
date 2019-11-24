@@ -52,6 +52,7 @@
                 v-if="selectedImage"
                 v-bind:id="selectedImage"
                 @close="closeModal"
+                @image-deleted="refreshPage"
             >
             </image-modal>
         </div>
@@ -64,6 +65,7 @@
                     <p>Title: {{image.title}}</p>
                     <p>Description: {{image.description}}</p>
                     <p>Time: {{image.created_at | formatDate}}</p>
+                    <button id="delete-button" @click="deleteImage">Delete image</button>
 
                     <div id="comment-field">
                         <form method="POST">

@@ -51,3 +51,7 @@ exports.getMoreImages = function getMoreImages(lastId) {
 exports.countTotalImage = function countTotalImage() {
     return db.query('SELECT count(id) FROM images');
 };
+
+exports.deleteImage = function deleteImage(id) {
+    return db.query('DELETE FROM images WHERE id = $1 RETURNING *', [id]);
+};
