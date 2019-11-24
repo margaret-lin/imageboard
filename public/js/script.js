@@ -20,6 +20,19 @@ new Vue({
 
         axios.get('/image').then(res => {
             me.images = res.data;
+            console.log('count data', res.data.count);
+
+            // also checking if more button is needed...
+            axios
+                .get('/image/count')
+                .then(res => {
+                    console.log('count data', res.data);
+
+                    if (me.images.length >= res.data[0].count) {
+                        me.showButton = false;
+                    }
+                })
+                .catch(err => console.log('err in image/count', err));
         });
 
         window.addEventListener('hashchange', function() {

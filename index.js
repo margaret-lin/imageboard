@@ -114,4 +114,10 @@ app.get('/more/:lastId', (req, res) => {
         .catch(err => console.log('err in back: get /more', err));
 });
 
+app.get('/image/count', (req, res) => {
+    db.countTotalImage().then(({ rows }) => {
+        res.json(rows);
+    });
+});
+
 app.listen(8080, () => console.log('Imageboard up and running...'));
