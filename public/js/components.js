@@ -61,6 +61,7 @@ Vue.component('image-modal', {
                 })
                 .then(res => {
                     imageModal.comments.unshift(res.data.comment);
+                    window.location.reload();
                 })
                 .catch(err => console.log('error in post/comment', err));
         },
