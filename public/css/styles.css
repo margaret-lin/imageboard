@@ -1,6 +1,7 @@
 body {
     z-index: -1;
     position: relative;
+    margin: 0;
 }
 
 a {
@@ -32,7 +33,7 @@ a {
 
 #image-detail-content {
     text-align: left;
-    width: 300px;
+    width: 350px;
     margin: 0 auto;
 }
 
@@ -55,27 +56,13 @@ a {
     margin-left: 2%;
     margin-top: 2%;
     font-size: 25px;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#comment-field {
-    /* height: 100px;
-    width: 100vh; */
-    /* text-align: center; */
-    /* position: absolute;
-    left: 25%;
-    background-color: white;
-    border: 2px solid black;
-    color: black; */
-    /* border-top-color: white 2px solid; */
-}
-
-#comment-field > form > textarea {
-    height: 100px;
-    width: 300px;
-    /* position: absolute;
-    left: 50%;
-    background-color: white;
-    border: 2px solid black; */
+#comment-field > form > input {
+    margin: 10px 0;
 }
 
 .container {
@@ -108,6 +95,17 @@ img {
     height: 250px;
 }
 
+button {
+    color: white;
+    background-color: forestgreen;
+    width: auto;
+    height: 25px;
+    border: none;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
 /* #more-button {
     height: 40px;
     width: 100px;
@@ -124,6 +122,7 @@ img {
     color: black;
     padding: 0.5em 1em;
     outline: none;
+    height: 35px;
     border: none;
     background-color: white;
     border-radius: 5px;
