@@ -11,6 +11,7 @@ new Vue({
         title: '',
         description: '',
         username: '',
+        imageUrl: '',
         file: null,
         selectedImage: location.hash.slice(1),
         showButton: true
@@ -59,6 +60,21 @@ new Vue({
         },
         handleChange: function(e) {
             this.file = e.target.files[0];
+            console.log('file', e.target.files[0]);
+        },
+        getImageFromUrl: function() {
+            console.log(this.imageUrl);
+            var me = this;
+            axios({
+                method: 'GET',
+                url: this.imageUrl,
+                responseType: 'blob'
+            }).then(res => {
+                console.log(res.data);
+                me.file = new Blob([res.data], { type: 'image/png' });
+                me.file.name = 'image.png';
+                console.log('file url data', me.file);
+            });
         },
         showModal: function(id) {
             this.selectedImage = id;
