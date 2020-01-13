@@ -11,12 +11,21 @@ a {
 
 #main {
     text-align: center;
-    background-image: url('/image.jpg');
+    background-image: url('/leaf.jpg');
+    background-size: cover;
 }
 
 #image-header {
     background-color: white;
     padding-bottom: 20px;
+    background-image: url('/header.png');
+}
+
+#image-header h1 {
+    font-family: fantasy;
+    font-size: 50px;
+    padding-top: 20px;
+    margin-top: 0;
 }
 
 #image-detail {
@@ -119,12 +128,12 @@ button {
     position: relative;
     font-size: inherit;
     font-family: inherit;
-    color: black;
+    color: white;
     padding: 0.5em 1em;
     outline: none;
     height: 35px;
     border: none;
-    background-color: white;
+    background-color: green;
     border-radius: 5px;
     margin-bottom: 50px;
 }
@@ -141,7 +150,7 @@ button {
     bottom: 0;
     left: 0;
     right: 0;
-    border: 4px solid white;
+    border: 4px solid green;
     transform-origin: center;
     transform: scale(1);
     border-radius: 5px;
